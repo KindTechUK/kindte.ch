@@ -3,43 +3,51 @@
   Every outside address this page links to is listed here, so that one can be
   changed or added in one pass. Search for the address to find where it is used.
 
-  Lens page (not live until launch)   https://app.kindte.ch/
-    its custom lens form              https://app.kindte.ch/custom-lens
-    how data is handled               https://app.kindte.ch/trust
-    privacy policy                    https://app.kindte.ch/privacy
-    terms of use                      https://app.kindte.ch/terms
-    help and support                  https://app.kindte.ch/support
   Organisation on GitHub              https://github.com/KindTechUK
-  kindtech package                    https://github.com/KindTechUK/kindtech
-  kindtech docs (changes at 0.2)      https://kindtechuk.github.io/kindtech/
+  UK open data package                https://github.com/KindTechUK/kindtech
+    its docs (change at 0.2)          https://kindtechuk.github.io/kindtech/
+  Skills for AI assistants            https://github.com/KindTechUK/plugins
   open-foi                            https://github.com/KindTechUK/open-foi
   Use cases list                      https://github.com/KindTechUK/awesome-charity-ai-use-cases
   Contributing guide                  https://github.com/KindTechUK/.github/blob/main/CONTRIBUTING.md
   AI policy                           https://github.com/KindTechUK/.github/blob/main/AI_POLICY.md
   Security reports                    https://github.com/KindTechUK/.github/blob/main/SECURITY.md
 
-  Not linked yet, add when live: lane guides, GitHub Discussions, the connector
-  address, the plugins repository, a newsletter sign-up, a support mailbox.
-  The support mailbox is the one placeholder on the page: search for
-  "to be confirmed".
+  Not linked yet, add when live:
+    the page that runs an analysis    https://app.kindte.ch/ (and its pages for a
+                                      custom analysis, how data is handled,
+                                      privacy, terms and support)
+    the research tool and Folio       their repositories are still private
+    the connector address, the package on PyPI under its new name, lane guides,
+    GitHub Discussions, a newsletter sign-up, a support mailbox.
+  When the page at app.kindte.ch is live, search for "Opening soon" and
+  "opens with the page" and put the links in.
+
+  Names that are about to change. Search for each to find every use.
+    "Kindtech Evidence" the name of the ready-made analyses, chosen on
+                        19 November 2026. It appears in the projects list, in
+                        the section with id "analyses" and, as "Evidence", in
+                        the menu. One of them is always called an "analysis".
+    "kindtech"          the package's name today. It becomes "uk-open-data" at
+                        0.2. It appears once as text, in the projects list.
 -->
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kindtech: data answers for charities, open source</title>
-  <meta name="description" content="Free, open source tools that answer a charity's questions about who it reaches, using UK open data. No data team needed, and your data is not kept.">
+  <title>Kindtech: open source data and AI tools for charities</title>
+  <meta name="description" content="Kindtech builds free, open source data and AI tools for UK charities: ready-made analyses of who you reach, UK open data in code, skills for AI assistants, and more.">
   <style>
     :root {
       color-scheme: light;
-      --ink: #1f1b16;
-      --ink-2: #5a524a;
+      --ink: #0b0b0b;
+      --ink-2: #52514e;
       --surface: #ffffff;
-      --cream: #fef7f0;
-      --line: #e6d9cc;
+      --panel: #f6f5f2;
+      --line: #d6d4cc;
       --brand: #ff6b35;
-      --accent: #a8400f;
-      --accent-dark: #7f2f08;
+      --accent: #1c5cab;
+      --accent-dark: #104281;
     }
     * { box-sizing: border-box; }
     html { font-size: 112.5%; scroll-behavior: smooth; }
@@ -54,12 +62,12 @@
     .wrap { max-width: 58rem; margin: 0 auto; padding: 0 1rem; }
     h1 { font-size: 2.2rem; line-height: 1.15; margin: 0 0 1rem; max-width: 22ch; }
     h2 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.8rem; }
-    h3 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+    h3 { font-size: 1.15rem; line-height: 1.3; margin: 0 0 0.4rem; }
     p, ul, ol { margin: 0 0 1rem; }
     li { margin-bottom: 0.4rem; }
     a { color: var(--accent); text-underline-offset: 0.15em; }
     a:hover { color: var(--accent-dark); }
-    :focus-visible { outline: 3px solid #1c5cab; outline-offset: 2px; }
+    :focus-visible { outline: 3px solid #eda100; outline-offset: 2px; }
     .skip { position: absolute; left: -999rem; }
     .skip:focus { left: 1rem; top: 0.5rem; background: var(--surface); padding: 0.4rem; z-index: 10; }
     header { border-bottom: 4px solid var(--brand); }
@@ -67,8 +75,8 @@
     .brand { font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; margin-right: auto; }
     nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; }
     section { padding: 3rem 0; }
-    section.tint { background: var(--cream); }
-    .hero { padding: 3.5rem 0 3rem; background: var(--cream); }
+    section.tint { background: var(--panel); }
+    .hero { padding: 3.5rem 0 3rem; background: var(--panel); }
     .lead { font-size: 1.2rem; max-width: 40rem; }
     .small { font-size: 0.85rem; color: var(--ink-2); }
     .gap { margin-top: 1.5rem; }
@@ -77,20 +85,29 @@
       display: inline-block; padding: 0.7rem 1.2rem; border-radius: 6px; font-weight: 600;
       text-decoration: none; border: 2px solid var(--accent); color: var(--accent); background: var(--surface);
     }
+    .button:hover { border-color: var(--accent-dark); }
     .button.primary { background: var(--accent); color: #fff; }
-    .button.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; list-style: none; padding: 0; }
+    .button.primary:hover { background: var(--accent-dark); color: #fff; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; list-style: none; padding: 0; }
+    .grid.narrow { grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); }
     .card { border: 1px solid var(--line); border-radius: 8px; padding: 1.2rem; background: var(--surface); margin: 0; }
     .card p:last-child { margin-bottom: 0; }
     .tag { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.5rem; border-radius: 999px; border: 1px solid var(--ink-2); color: var(--ink-2); margin-bottom: 0.5rem; }
-    figure { margin: 1.5rem 0 0; }
+    .tag.now { border-color: var(--accent); color: var(--accent); }
+    .for { font-size: 0.85rem; color: var(--ink-2); }
+    .analyses { list-style: none; padding: 0; margin: 2rem 0 0; }
+    .analysis {
+      display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 1.5rem; align-items: start;
+      padding: 1.5rem 0; border-top: 1px solid var(--line); margin: 0;
+    }
+    @media (max-width: 44rem) { .analysis { grid-template-columns: minmax(0, 1fr); } }
+    .analysis dl { margin: 0; }
+    .analysis dt { font-weight: 600; margin-top: 0.6rem; }
+    .analysis dd { margin: 0; }
+    figure { margin: 0; }
     figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-    .pictures { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; align-items: start; }
     figcaption { margin-top: 0.5rem; }
-    table { border-collapse: collapse; width: 100%; }
-    th, td { text-align: left; padding: 0.6rem 0.8rem 0.6rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
-    .scroll { overflow-x: auto; }
-    footer { border-top: 1px solid var(--line); padding: 2rem 0; background: var(--cream); }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0; background: var(--panel); }
     footer nav { margin-bottom: 1rem; }
   </style>
 </head>
@@ -100,9 +117,10 @@
     <div class="wrap">
       <a class="brand" href="/">Kindtech</a>
       <nav aria-label="Main">
-        <a href="#lenses">Lenses</a>
-        <a href="#ways">Ways to use them</a>
-        <a href="#open-source">Open source</a>
+        <a href="#projects">Projects</a>
+        <a href="#analyses">Evidence</a>
+        <a href="#data">Your data</a>
+        <a href="#funding">How it is paid for</a>
         <a href="#contribute">Contribute</a>
       </nav>
     </div>
@@ -111,111 +129,200 @@
   <main id="main">
     <div class="hero">
       <div class="wrap">
-        <h1>Data answers for charities that cannot hire a data team</h1>
-        <p class="lead">Most charities hold a spreadsheet of the people they support and a question they cannot answer with it. Kindtech builds free, open source tools that set your data against UK open data and give you figures, a map and the working behind them.</p>
+        <h1>Open source data and AI tools for charities</h1>
+        <p class="lead">Most charities cannot hire a data team. We build the tools a good one would use, keep them open, and make them work with the AI assistants people already have.</p>
         <div class="buttons">
-          <a class="button primary" href="https://app.kindte.ch/">Try a lens, free</a>
+          <a class="button primary" href="#projects">See the projects</a>
           <a class="button" href="https://github.com/KindTechUK">See the code on GitHub</a>
         </div>
-        <p class="small gap">No account. No installation. What you send is not kept.</p>
+        <p class="small gap">Free to use. Open source. Starting with the UK.</p>
       </div>
     </div>
 
-    <section id="lenses">
+    <section id="projects">
       <div class="wrap">
-        <h2>A lens answers one question</h2>
-        <p class="lead">Choose a spreadsheet, say which column is which, and read the answer. The first lens asks: <strong>are we reaching people in the most deprived neighbourhoods?</strong></p>
+        <h2>What we are building</h2>
+        <p class="lead">Seven projects with one aim: a small charity should be able to answer its own questions, with its own data, without handing that data to anyone.</p>
+        <ul class="grid">
+          <li class="card">
+            <span class="tag">Opening soon</span>
+            <h3>Kindtech Evidence</h3>
+            <p>Ready-made analyses that set your data against UK open data: who you reach, where need is high, who you miss. Each gives figures you can quote, a map and the working.</p>
+            <p class="for">For anyone with a spreadsheet.</p>
+            <p><a href="#analyses">See the five analyses</a></p>
+          </li>
+          <li class="card">
+            <span class="tag now">Use it today</span>
+            <h3>UK open data package</h3>
+            <p>Area boundaries, official statistics, postcodes and deprivation indices for all four nations, in one Python package. It includes worked charity case studies you can run in the browser.</p>
+            <p class="for">For people who code. Its name today is <code>kindtech</code>.</p>
+            <p><a href="https://github.com/KindTechUK/kindtech">Code</a> and <a href="https://kindtechuk.github.io/kindtech/">docs</a></p>
+          </li>
+          <li class="card">
+            <span class="tag now">Early version</span>
+            <h3>Skills for AI assistants</h3>
+            <p>Skills that bring UK charity know-how and UK open data into the assistant you already use. Each one is tested against the assistant alone. The first helps write the evidence of local need for a grant application.</p>
+            <p class="for">For anyone who uses an AI assistant.</p>
+            <p><a href="https://github.com/KindTechUK/plugins">See the skills</a></p>
+          </li>
+          <li class="card">
+            <span class="tag now">Use it today</span>
+            <h3>open-foi</h3>
+            <p>Search Freedom of Information requests on WhatDoTheyKnow from the command line, and save what you find.</p>
+            <p class="for">For researchers and campaigners who code.</p>
+            <p><a href="https://github.com/KindTechUK/open-foi">See open-foi</a></p>
+          </li>
+          <li class="card">
+            <span class="tag now">Use it today</span>
+            <h3>Charity AI use cases</h3>
+            <p>A list of real examples of charities using AI, with what they learned. Read it before you start, and add your own.</p>
+            <p class="for">For anyone at a charity.</p>
+            <p><a href="https://github.com/KindTechUK/awesome-charity-ai-use-cases">Read the list</a></p>
+          </li>
+          <li class="card">
+            <span class="tag">Opening soon</span>
+            <h3>Research graph</h3>
+            <p>A research tool that keeps a source for every fact it records, so a finding can always be traced back to where it came from.</p>
+            <p class="for">For researchers and policy teams.</p>
+          </li>
+          <li class="card">
+            <span class="tag">Opening soon</span>
+            <h3>Folio</h3>
+            <p>A transcription app that runs entirely on your own computer. An interview or a meeting becomes text, and the recording never leaves your machine.</p>
+            <p class="for">For anyone who records conversations.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="tint" id="analyses">
+      <div class="wrap">
+        <h2>Kindtech Evidence: one question, one answer you can quote</h2>
+        <p class="lead">Kindtech Evidence is a set of ready-made analyses. You give one a spreadsheet, or a few totals, and it sets them against UK open data. You get:</p>
         <ul>
           <li><strong>Figures you can quote</strong>, each with its source, for a funding bid or a trustee report.</li>
-          <li><strong>A map and a chart</strong> you can save as pictures. Areas are shaded. No dot is ever drawn for a person.</li>
-          <li><strong>The working</strong>, step by step, and every choice the lens made for you, which you can change.</li>
+          <li><strong>A map or a chart</strong> you can save as a picture. Areas are shaded. No dot is ever drawn for a person.</li>
+          <li><strong>The working</strong>, step by step, and every choice made for you, which you can change.</li>
           <li><strong>Checks only you can do</strong>, such as whether each row is one person, listed beside the figures.</li>
-          <li><strong>A Word document</strong> with all of it, ready to edit.</li>
         </ul>
-        <div class="pictures">
-          <figure>
-            <img src="assets/lens-chart-example.png" width="1440" height="760" loading="lazy"
-              alt="Bar chart from a lens. For each deprivation decile from 1 to 10 it shows the share of a charity's people beside the share of everyone who lives in the area. The charity's share is higher in the most deprived deciles.">
-            <figcaption class="small">The chart from the first lens, on invented data.</figcaption>
-          </figure>
-          <figure>
-            <img src="assets/lens-map-example.png" width="1440" height="1460" loading="lazy"
-              alt="Map from a lens. Neighbourhoods in two invented areas are shaded in five bands by how many people the charity reached there. The lowest band includes zero.">
-            <figcaption class="small">The map from the first lens. The places are invented.</figcaption>
-          </figure>
-        </div>
-        <p class="gap">More lenses are being added. If your question is not there yet, you can <a href="https://app.kindte.ch/custom-lens">ask for a custom lens</a>, built for your question and your data at a price agreed before any work starts.</p>
+        <p>There are five so far. Every picture below comes from invented data and invented places.</p>
+
+        <ul class="analyses">
+          <li class="analysis">
+            <div>
+              <h3>Are we reaching people in the most deprived neighbourhoods?</h3>
+              <dl>
+                <dt>You give</dt><dd>The home postcodes of the people you helped, or a count for each neighbourhood.</dd>
+                <dt>You get</dt><dd>How many live in the most deprived parts of England, and how your reach there compares with your reach elsewhere.</dd>
+              </dl>
+            </div>
+            <figure>
+              <a href="assets/analysis-deprivation-map.png"><img src="assets/analysis-deprivation-map.png" width="1688" height="1712" loading="lazy"
+                alt="Map of the neighbourhoods of two invented places, shaded in bands by how many people a charity reached in each, with the places around them in grey. The lowest band includes places with nobody and places with a hidden count."></a>
+              <figcaption class="small">People reached, by neighbourhood. Invented places.</figcaption>
+            </figure>
+          </li>
+          <li class="analysis">
+            <div>
+              <h3>Where is need high and our presence low?</h3>
+              <dl>
+                <dt>You give</dt><dd>Home postcodes, or a count of people for each local authority.</dd>
+                <dt>You get</dt><dd>The people you helped set against the people in need in each place, and a list of the places where need is high and you reach few.</dd>
+              </dl>
+            </div>
+            <figure>
+              <a href="assets/analysis-need-map.png"><img src="assets/analysis-need-map.png" width="1688" height="1748" loading="lazy"
+                alt="Map of ten invented local authorities, shaded by people reached for each 100 in need. Three are shaded as lower, middle and higher reach. The other seven have nobody or a hidden count."></a>
+              <figcaption class="small">People reached for each 100 in need, by local authority. Invented places.</figcaption>
+            </figure>
+          </li>
+          <li class="analysis">
+            <div>
+              <h3>Who do we reach less than their share of the people who live here?</h3>
+              <dl>
+                <dt>You give</dt><dd>The group each person is in, by ethnic group or by sex, or a count for each group.</dd>
+                <dt>You get</dt><dd>Each group's share of the people you helped beside its share of residents in the 2021 Census, and which groups you reach less than you would expect.</dd>
+              </dl>
+            </div>
+            <figure>
+              <a href="assets/analysis-groups-chart.png"><img src="assets/analysis-groups-chart.png" width="1688" height="772" loading="lazy"
+                alt="Bar chart of five ethnic groups. For each it shows the share of a charity's people beside the share of residents of its area. The Asian group is 4.3% of the charity's people and 15% of residents."></a>
+              <figcaption class="small">Your people and the residents of your area, by group. Invented figures.</figcaption>
+            </figure>
+          </li>
+          <li class="analysis">
+            <div>
+              <h3>Where is provision thin against need across a region?</h3>
+              <dl>
+                <dt>You give</dt><dd>Your sites or services, with what each provides, such as sessions a year.</dd>
+                <dt>You get</dt><dd>What you provide in each local authority set against the people in need there, and the high-need places with the least.</dd>
+              </dl>
+            </div>
+            <figure>
+              <a href="assets/analysis-provision-map.png"><img src="assets/analysis-provision-map.png" width="1688" height="1748" loading="lazy"
+                alt="Map of ten invented local authorities, shaded by what an organisation provides for each 1,000 people in need. Three are shaded as lower, middle and higher provision. The other seven have none."></a>
+              <figcaption class="small">Provision for each 1,000 people in need, by local authority. Invented places.</figcaption>
+            </figure>
+          </li>
+          <li class="analysis">
+            <div>
+              <h3>How far are people from our nearest site, and where would a new site help most?</h3>
+              <dl>
+                <dt>You give</dt><dd>Where your sites are. Do not use it for a site whose address is confidential.</dd>
+                <dt>You get</dt><dd>The straight-line distance from each local authority to your nearest site, the share of people within reach, and the places where the most people are beyond it.</dd>
+              </dl>
+            </div>
+            <figure>
+              <a href="assets/analysis-distance-chart.png"><img src="assets/analysis-distance-chart.png" width="1688" height="504" loading="lazy"
+                alt="Bar chart of four invented local authorities that are beyond reach of every site, by how many people live there. The largest has 79,000 people."></a>
+              <figcaption class="small">People in the places beyond reach of every site. Invented places.</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <p class="gap">These analyses cover England and Wales. The one about deprivation covers England only, because each nation measures deprivation in its own way.</p>
+
+        <h3 class="gap">Three ways to run them</h3>
+        <ul class="grid">
+          <li class="card">
+            <span class="tag">Opening soon</span>
+            <h3>On a web page</h3>
+            <p>For anyone with a spreadsheet. Choose a file, say which column is which and read the answer. No installation and no account.</p>
+          </li>
+          <li class="card">
+            <span class="tag now">Early version</span>
+            <h3>In your AI assistant</h3>
+            <p>A first skill can be installed today. The connector that hands your assistant the figures opens with the page. The assistant is given totals only, never your rows, so a file of people goes to the page and totals go to the assistant.</p>
+            <p><a href="https://github.com/KindTechUK/plugins">See the skills</a></p>
+          </li>
+          <li class="card">
+            <span class="tag now">For people who code</span>
+            <h3>On your own computer</h3>
+            <p>The same analyses are in the open source package and its command line. Your spreadsheet stays on your computer. Until our own postcode table is published, the list of postcodes in it is sent to postcodes.io to be placed, and nothing else is.</p>
+            <p><a href="https://github.com/KindTechUK/kindtech">See the code</a></p>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section class="tint" id="data">
+    <section id="data">
       <div class="wrap">
         <h2>Built for data about people</h2>
-        <ul class="grid">
-          <li class="card"><h3>Totals, never rows</h3><p>A result is never about one person. Small counts are hidden, and nothing you send is repeated back.</p></li>
-          <li class="card"><h3>Only what is needed</h3><p>Your file is opened in your browser. Only the columns a lens needs are sent, such as the postcode column.</p></li>
-          <li class="card"><h3>Nothing is kept</h3><p>What you send is read for the run and then gone. There is no account, no database and no tracking.</p></li>
-          <li class="card"><h3>You stay in control</h3><p>The figures come from ordinary code that anyone can read. No AI model sees your file on the lens page.</p></li>
-        </ul>
-        <p><a href="https://app.kindte.ch/trust">Read exactly how your data is handled</a>.</p>
-      </div>
-    </section>
-
-    <section id="ways">
-      <div class="wrap">
-        <h2>Three ways to use the same lenses</h2>
-        <ul class="grid">
-          <li class="card">
-            <span class="tag">No installation</span>
-            <h3>On the lens page</h3>
-            <p>For anyone with a spreadsheet. Open the page, choose a file and run a lens.</p>
-            <p><a href="https://app.kindte.ch/">Open the lens page</a></p>
-          </li>
-          <li class="card">
-            <span class="tag">Coming soon</span>
-            <h3>In your AI assistant</h3>
-            <p>A connector and skills that bring the lenses and UK charity know-how into the assistant you already use. The assistant is given totals only, never your rows.</p>
-          </li>
-          <li class="card">
-            <span class="tag">For people who code</span>
-            <h3>On your own computer</h3>
-            <p>The open source Python package and its command line tool. Your spreadsheet is never uploaded, and there is no limit on file size.</p>
-            <p><a href="https://kindtechuk.github.io/kindtech/">Read the docs</a></p>
-          </li>
+        <p class="lead">The same four rules hold in every project.</p>
+        <ul class="grid narrow">
+          <li class="card"><h3>Totals, never rows</h3><p>A result is never about one person. Small counts are hidden, and an AI assistant is given totals only.</p></li>
+          <li class="card"><h3>Your computer first</h3><p>The package, the command line and Folio run on your own machine. On the web page your file is opened in your browser, and only the columns an analysis needs are sent.</p></li>
+          <li class="card"><h3>Nothing is kept</h3><p>What you send to the web page is read for the run and then gone. There is no account, no database and no tracking.</p></li>
+          <li class="card"><h3>You stay in control</h3><p>Figures come from ordinary code that anyone can read, with the working shown. A person checks them before they are used.</p></li>
         </ul>
       </div>
     </section>
 
-    <section class="tint" id="open-source">
+    <section class="tint" id="funding">
       <div class="wrap">
-        <h2>Open source</h2>
-        <p class="lead">Most charities cannot hire a data team. We build the tools a good one would use, keep them open, and make them work with the AI assistants people already have.</p>
-        <h3>What you can use today</h3>
-        <div class="scroll">
-          <table>
-            <thead><tr><th scope="col">Project</th><th scope="col">What it does</th></tr></thead>
-            <tbody>
-              <tr>
-                <td><a href="https://github.com/KindTechUK/kindtech">kindtech</a></td>
-                <td>Python package for UK public data: area boundaries, official statistics, postcodes and deprivation indices for all four nations. Includes worked charity case studies you can run in the browser. <a href="https://kindtechuk.github.io/kindtech/">Docs</a></td>
-              </tr>
-              <tr>
-                <td><a href="https://github.com/KindTechUK/open-foi">open-foi</a></td>
-                <td>Command-line search of Freedom of Information requests on WhatDoTheyKnow.</td>
-              </tr>
-              <tr>
-                <td><a href="https://github.com/KindTechUK/awesome-charity-ai-use-cases">awesome-charity-ai-use-cases</a></td>
-                <td>A list of real examples of charities using AI, with what they learned.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <h3 class="gap">Opening up soon</h3>
-        <ul>
-          <li>A research tool that keeps a source for every fact it records.</li>
-          <li>A transcription app that runs entirely on your own computer.</li>
-          <li>Skills and connectors that bring UK charity know-how and open data into AI assistants.</li>
-        </ul>
+        <h2>Free, open, and how it is paid for</h2>
+        <p class="lead">Everything on this page is free to use, and the code is open for anyone to read, check and improve.</p>
+        <p>Kindtech earns its keep from custom work: an analysis built for one charity's own question and data, at a price agreed before any work starts. That income pays for the open tools, so each paid piece of work leaves something behind for every other charity. Requests open with the page that runs the analyses.</p>
       </div>
     </section>
 
@@ -223,10 +330,10 @@
       <div class="wrap">
         <h2>Contribute</h2>
         <p class="lead">You do not need to write code to help. There are four ways in, and each is small enough to finish.</p>
-        <ul class="grid">
+        <ul class="grid narrow">
           <li class="card"><h3>Add a use case</h3><p>Work at a charity? Share an example of AI or data in use, and what you learned, in the <a href="https://github.com/KindTechUK/awesome-charity-ai-use-cases">use cases list</a>.</p></li>
-          <li class="card"><h3>Add a data source</h3><p>Bring another public dataset into the package so every lens and skill can use it.</p></li>
-          <li class="card"><h3>Add a lens</h3><p>Turn a question charities keep asking into a lens, with its sources, working and checks.</p></li>
+          <li class="card"><h3>Add a data source</h3><p>Bring another public dataset into the package, so every analysis and skill can use it.</p></li>
+          <li class="card"><h3>Add an analysis</h3><p>Turn a question charities keep asking into a ready-made analysis, with its sources, working and checks.</p></li>
           <li class="card"><h3>Add a skill</h3><p>Write down how a good analyst or fundraiser does a task, so an AI assistant can help with it properly.</p></li>
         </ul>
         <p>Start with the <a href="https://github.com/KindTechUK/.github/blob/main/CONTRIBUTING.md">contributing guide</a>. Using an AI assistant to contribute is welcome: read the <a href="https://github.com/KindTechUK/.github/blob/main/AI_POLICY.md">AI policy</a> first. Never put data about real people in an issue, an example or a test.</p>
@@ -237,13 +344,11 @@
   <footer>
     <div class="wrap">
       <nav aria-label="Footer">
-        <a href="https://app.kindte.ch/privacy">Privacy policy</a>
-        <a href="https://app.kindte.ch/terms">Terms of use</a>
-        <a href="https://app.kindte.ch/support">Help and support</a>
         <a href="https://github.com/KindTechUK">GitHub</a>
+        <a href="https://github.com/KindTechUK/.github/blob/main/CONTRIBUTING.md">Contributing guide</a>
+        <a href="https://github.com/KindTechUK/.github/blob/main/SECURITY.md">Report a security or privacy problem</a>
       </nav>
-      <p class="small">Support: [support address to be confirmed]. Found a security or privacy problem? Please <a href="https://github.com/KindTechUK/.github/blob/main/SECURITY.md">report it privately</a>.</p>
-      <p class="small">Kindtech's code is open source under the Apache-2.0 licence. This site uses no cookies, no tracking and nothing loaded from other companies.</p>
+      <p class="small">Kindtech's code is open source. Each repository says which licence it uses. This site uses no cookies, no tracking and nothing loaded from other companies.</p>
     </div>
   </footer>
 </body>
