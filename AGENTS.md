@@ -26,7 +26,9 @@ static page.
    Names that are about to change are listed in the comment at the top of
    `index.html`, with where each is used.
 6. No personal data about real people, and no personal email address. Any
-   picture of a result must come from invented data and say so.
+   picture of a result must use an invented charity's data and say so. Real
+   places and open data figures are fine, and the caption says which parts
+   are real.
 7. Do not rename or remove `CNAME`.
 
 ## Checks to run before pushing
