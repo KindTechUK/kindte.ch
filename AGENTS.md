@@ -21,8 +21,10 @@ static page.
    for WCAG AA: real headings in order, text contrast of at least 4.5 to 1,
    alt text on every picture, and a page that works with a keyboard and
    without JavaScript.
-5. Say the same thing as the organisation page. The "Open source" section
-   follows `profile/README.md` in `KindTechUK/.github`. Change both together.
+5. Say the same thing as the organisation page. The list of projects follows
+   `profile/README.md` in `KindTechUK/.github`. Change both together.
+   Names that are about to change are listed in the comment at the top of
+   `index.html`, with where each is used.
 6. No personal data about real people, and no personal email address. Any
    picture of a result must come from invented data and say so.
 7. Do not rename or remove `CNAME`.
