@@ -20,8 +20,9 @@ Then open http://localhost:8000.
 
 - `index.html`: the whole page, with its styles. Every outside address it
   links to is listed in the comment at the top of the file.
-- `assets/`: the pictures. They come from the page that runs the analyses,
-  on invented data.
+- `assets/`: the pictures. The two maps of reach are drawn by the
+  uk-open-data package on real places with an invented charity's counts.
+  The others come from the page that runs the analyses, on invented places.
 - `CNAME`: tells GitHub Pages the site's address. Leave it as it is.
 
 ## Changing it
