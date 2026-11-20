@@ -1,525 +1,250 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<!--
+  Every outside address this page links to is listed here, so that one can be
+  changed or added in one pass. Search for the address to find where it is used.
+
+  Lens page (not live until launch)   https://app.kindte.ch/
+    its custom lens form              https://app.kindte.ch/custom-lens
+    how data is handled               https://app.kindte.ch/trust
+    privacy policy                    https://app.kindte.ch/privacy
+    terms of use                      https://app.kindte.ch/terms
+    help and support                  https://app.kindte.ch/support
+  Organisation on GitHub              https://github.com/KindTechUK
+  kindtech package                    https://github.com/KindTechUK/kindtech
+  kindtech docs (changes at 0.2)      https://kindtechuk.github.io/kindtech/
+  open-foi                            https://github.com/KindTechUK/open-foi
+  Use cases list                      https://github.com/KindTechUK/awesome-charity-ai-use-cases
+  Contributing guide                  https://github.com/KindTechUK/.github/blob/main/CONTRIBUTING.md
+  AI policy                           https://github.com/KindTechUK/.github/blob/main/AI_POLICY.md
+  Security reports                    https://github.com/KindTechUK/.github/blob/main/SECURITY.md
+
+  Not linked yet, add when live: lane guides, GitHub Discussions, the connector
+  address, the plugins repository, a newsletter sign-up, a support mailbox.
+  The support mailbox is the one placeholder on the page: search for
+  "to be confirmed".
+-->
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kindtech - Building Technology with Kindness</title>
-    <meta name="description" content="Kindtech is a technology organization focused on building innovative solutions with kindness and compassion at the core.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: #1f2937;
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #ff6b35;
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #374151;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #ff6b35;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 80px;
-            text-align: center;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(45deg, #ffffff, #ffe4d6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.6);
-        }
-
-        /* Main Content */
-        main {
-            background: white;
-            position: relative;
-            z-index: 1;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section:nth-child(even) {
-            background: #fef7f0;
-        }
-
-        .section h2 {
-            font-size: 2.5rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #1f2937;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e7eb;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .feature-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-
-        .feature-card p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-
-        /* Projects Section */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #e5e7eb;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .project-card h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-
-        .project-card p {
-            color: #6b7280;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .project-link {
-            color: #ff6b35;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .project-link:hover {
-            color: #f7931e;
-        }
-
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .about-text h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1f2937;
-        }
-
-        .about-text p {
-            color: #6b7280;
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        .about-image {
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            height: 300px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            font-weight: 700;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            text-align: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact-info p {
-            font-size: 1.1rem;
-            color: #6b7280;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .social-link {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(45deg, #ff6b35, #f7931e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .social-link:hover {
-            transform: scale(1.1);
-        }
-
-        /* Footer */
-        footer {
-            background: #1f2937;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        footer p {
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section h2 {
-                font-size: 2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .features-grid,
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .fade-in-up {
-            animation: fadeInUp 0.6s ease-out;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kindtech: data answers for charities, open source</title>
+  <meta name="description" content="Free, open source tools that answer a charity's questions about who it reaches, using UK open data. No data team needed, and your data is not kept.">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f1b16;
+      --ink-2: #5a524a;
+      --surface: #ffffff;
+      --cream: #fef7f0;
+      --line: #e6d9cc;
+      --brand: #ff6b35;
+      --accent: #a8400f;
+      --accent-dark: #7f2f08;
+    }
+    * { box-sizing: border-box; }
+    html { font-size: 112.5%; scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+      line-height: 1.55;
+      color: var(--ink);
+      background: var(--surface);
+    }
+    .wrap { max-width: 58rem; margin: 0 auto; padding: 0 1rem; }
+    h1 { font-size: 2.2rem; line-height: 1.15; margin: 0 0 1rem; max-width: 22ch; }
+    h2 { font-size: 1.6rem; line-height: 1.2; margin: 0 0 0.8rem; }
+    h3 { font-size: 1.15rem; margin: 0 0 0.4rem; }
+    p, ul, ol { margin: 0 0 1rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: var(--accent); text-underline-offset: 0.15em; }
+    a:hover { color: var(--accent-dark); }
+    :focus-visible { outline: 3px solid #1c5cab; outline-offset: 2px; }
+    .skip { position: absolute; left: -999rem; }
+    .skip:focus { left: 1rem; top: 0.5rem; background: var(--surface); padding: 0.4rem; z-index: 10; }
+    header { border-bottom: 4px solid var(--brand); }
+    header .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1.4rem; padding-top: 0.9rem; padding-bottom: 0.9rem; }
+    .brand { font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; margin-right: auto; }
+    nav { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; }
+    section { padding: 3rem 0; }
+    section.tint { background: var(--cream); }
+    .hero { padding: 3.5rem 0 3rem; background: var(--cream); }
+    .lead { font-size: 1.2rem; max-width: 40rem; }
+    .small { font-size: 0.85rem; color: var(--ink-2); }
+    .gap { margin-top: 1.5rem; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.5rem; }
+    .button {
+      display: inline-block; padding: 0.7rem 1.2rem; border-radius: 6px; font-weight: 600;
+      text-decoration: none; border: 2px solid var(--accent); color: var(--accent); background: var(--surface);
+    }
+    .button.primary { background: var(--accent); color: #fff; }
+    .button.primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); color: #fff; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); gap: 1rem; list-style: none; padding: 0; }
+    .card { border: 1px solid var(--line); border-radius: 8px; padding: 1.2rem; background: var(--surface); margin: 0; }
+    .card p:last-child { margin-bottom: 0; }
+    .tag { display: inline-block; font-size: 0.75rem; font-weight: 600; padding: 0.1rem 0.5rem; border-radius: 999px; border: 1px solid var(--ink-2); color: var(--ink-2); margin-bottom: 0.5rem; }
+    figure { margin: 1.5rem 0 0; }
+    figure img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    .pictures { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; align-items: start; }
+    figcaption { margin-top: 0.5rem; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { text-align: left; padding: 0.6rem 0.8rem 0.6rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+    .scroll { overflow-x: auto; }
+    footer { border-top: 1px solid var(--line); padding: 2rem 0; background: var(--cream); }
+    footer nav { margin-bottom: 1rem; }
+  </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">Kindtech</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <a class="skip" href="#main">Skip to the main content</a>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="/">Kindtech</a>
+      <nav aria-label="Main">
+        <a href="#lenses">Lenses</a>
+        <a href="#ways">Ways to use them</a>
+        <a href="#open-source">Open source</a>
+        <a href="#contribute">Contribute</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1 class="fade-in-up">OSS Technology for the Charity Sector</h1>
-            <p class="fade-in-up">We believe that the charity sector should have equity in accessing the latest technology (ML/AI/Data Science) and tools. We're building open source technology projects that address the specific needs of the charity sector and hoping to be a multiplier rather than a noise generator.</p>
-            <a href="#contact" class="cta-button fade-in-up">Get in Touch</a>
+  <main id="main">
+    <div class="hero">
+      <div class="wrap">
+        <h1>Data answers for charities that cannot hire a data team</h1>
+        <p class="lead">Most charities hold a spreadsheet of the people they support and a question they cannot answer with it. Kindtech builds free, open source tools that set your data against UK open data and give you figures, a map and the working behind them.</p>
+        <div class="buttons">
+          <a class="button primary" href="https://app.kindte.ch/">Try a lens, free</a>
+          <a class="button" href="https://github.com/KindTechUK">See the code on GitHub</a>
         </div>
+        <p class="small gap">No account. No installation. What you send is not kept.</p>
+      </div>
+    </div>
+
+    <section id="lenses">
+      <div class="wrap">
+        <h2>A lens answers one question</h2>
+        <p class="lead">Choose a spreadsheet, say which column is which, and read the answer. The first lens asks: <strong>are we reaching people in the most deprived neighbourhoods?</strong></p>
+        <ul>
+          <li><strong>Figures you can quote</strong>, each with its source, for a funding bid or a trustee report.</li>
+          <li><strong>A map and a chart</strong> you can save as pictures. Areas are shaded. No dot is ever drawn for a person.</li>
+          <li><strong>The working</strong>, step by step, and every choice the lens made for you, which you can change.</li>
+          <li><strong>Checks only you can do</strong>, such as whether each row is one person, listed beside the figures.</li>
+          <li><strong>A Word document</strong> with all of it, ready to edit.</li>
+        </ul>
+        <div class="pictures">
+          <figure>
+            <img src="assets/lens-chart-example.png" width="1440" height="760" loading="lazy"
+              alt="Bar chart from a lens. For each deprivation decile from 1 to 10 it shows the share of a charity's people beside the share of everyone who lives in the area. The charity's share is higher in the most deprived deciles.">
+            <figcaption class="small">The chart from the first lens, on invented data.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/lens-map-example.png" width="1440" height="1460" loading="lazy"
+              alt="Map from a lens. Neighbourhoods in two invented areas are shaded in five bands by how many people the charity reached there. The lowest band includes zero.">
+            <figcaption class="small">The map from the first lens. The places are invented.</figcaption>
+          </figure>
+        </div>
+        <p class="gap">More lenses are being added. If your question is not there yet, you can <a href="https://app.kindte.ch/custom-lens">ask for a custom lens</a>, built for your question and your data at a price agreed before any work starts.</p>
+      </div>
     </section>
 
-    <main>
-        <section id="about" class="section">
-            <div class="container">
-                <h2>About Kindtech</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Our Mission</h3>
-                        <p>Charity sector in the UK is resource constrained with the mandate from government and funders to be more efficient and a lot of the attention has turned to AI. We believe technologies like ML and AI can unlock massive value for the charity in their day to day work but the applications need to be thought through with the right ethical considerations.</p>
-                        <p>We want to help build products and services that are accessible to our charity partners and have a positive impact on the lives of the people they serve.</p>
-                    </div>
-                    <div class="about-image">
-                        ❤️
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section class="tint" id="data">
+      <div class="wrap">
+        <h2>Built for data about people</h2>
+        <ul class="grid">
+          <li class="card"><h3>Totals, never rows</h3><p>A result is never about one person. Small counts are hidden, and nothing you send is repeated back.</p></li>
+          <li class="card"><h3>Only what is needed</h3><p>Your file is opened in your browser. Only the columns a lens needs are sent, such as the postcode column.</p></li>
+          <li class="card"><h3>Nothing is kept</h3><p>What you send is read for the run and then gone. There is no account, no database and no tracking.</p></li>
+          <li class="card"><h3>You stay in control</h3><p>The figures come from ordinary code that anyone can read. No AI model sees your file on the lens page.</p></li>
+        </ul>
+        <p><a href="https://app.kindte.ch/trust">Read exactly how your data is handled</a>.</p>
+      </div>
+    </section>
 
-        <section id="projects" class="section">
-            <div class="container">
-                <h2>Our Projects</h2>
-                <div class="projects-grid">
-                    <a href="https://github.com/KindTechUK/awesome-charity-ai-use-cases" class="project-card">
-                        <div class="project-icon">🤖</div>
-                        <h3>Awesome Charity AI Use Cases</h3>
-                        <p>A carefully curated list of case studies on how the charity sector is utilising emerging AI technology like GenAI. We noticed that the charity sector is not utilising the power of GenAI to its full potential.</p>
-                        <span class="project-link">View Project →</span>
-                    </a>
-                    <a href="https://github.com/KindTechUK/" class="project-card">
-                        <div class="project-icon">📊</div>
-                        <h3>Open Source Data Platform</h3>
-                        <p>An open-source data platform designed to help charities and nonprofits better manage, analyze, and visualize their data to make more informed decisions.</p>
-                        <span class="project-link">View Project →</span>
-                    </a>
-                </div>
-            </div>
-        </section>
+    <section id="ways">
+      <div class="wrap">
+        <h2>Three ways to use the same lenses</h2>
+        <ul class="grid">
+          <li class="card">
+            <span class="tag">No installation</span>
+            <h3>On the lens page</h3>
+            <p>For anyone with a spreadsheet. Open the page, choose a file and run a lens.</p>
+            <p><a href="https://app.kindte.ch/">Open the lens page</a></p>
+          </li>
+          <li class="card">
+            <span class="tag">Coming soon</span>
+            <h3>In your AI assistant</h3>
+            <p>A connector and skills that bring the lenses and UK charity know-how into the assistant you already use. The assistant is given totals only, never your rows.</p>
+          </li>
+          <li class="card">
+            <span class="tag">For people who code</span>
+            <h3>On your own computer</h3>
+            <p>The open source Python package and its command line tool. Your spreadsheet is never uploaded, and there is no limit on file size.</p>
+            <p><a href="https://kindtechuk.github.io/kindtech/">Read the docs</a></p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-        <section id="features" class="section">
-            <div class="container">
-                <h2>What We Do</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">🔓</div>
-                        <h3>Open Source</h3>
-                        <p>We believe in building in the open and would love to build a vibrant open source community. Too many projects die in the charity sector, and we're committed to creating sustainable, collaborative solutions.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚖️</div>
-                        <h3>Ethical Considerations</h3>
-                        <p>Applying cutting edge technology like GenAI requires careful design and considerations. We prioritize ethical AI development, ensuring our solutions are responsible, transparent, and beneficial to society.</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">🎯</div>
-                        <h3>Real-World Impact</h3>
-                        <p>We aim to work with and hand-hold our charity partners, ensuring the final impact of our projects and products. Success isn't just about building technology—it's about creating lasting positive change.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Get in Touch</h2>
-                <div class="contact-info">
-                    <p>Interested in collaborating, contributing, or learning more about our projects? We'd love to hear from you!</p>
-                    <p>Join our community and help us build a kinder, more compassionate technology ecosystem.</p>
-                    <div class="social-links">
-                        <a href="https://github.com/KindTechUK" class="social-link" title="GitHub">📦</a>
-                        <a href="mailto:billyzhaoyh@gmail.com" class="social-link" title="Email">✉️</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Kindtech. All rights reserved. | Built with ❤️ and kindness</p>
+    <section class="tint" id="open-source">
+      <div class="wrap">
+        <h2>Open source</h2>
+        <p class="lead">Most charities cannot hire a data team. We build the tools a good one would use, keep them open, and make them work with the AI assistants people already have.</p>
+        <h3>What you can use today</h3>
+        <div class="scroll">
+          <table>
+            <thead><tr><th scope="col">Project</th><th scope="col">What it does</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><a href="https://github.com/KindTechUK/kindtech">kindtech</a></td>
+                <td>Python package for UK public data: area boundaries, official statistics, postcodes and deprivation indices for all four nations. Includes worked charity case studies you can run in the browser. <a href="https://kindtechuk.github.io/kindtech/">Docs</a></td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/KindTechUK/open-foi">open-foi</a></td>
+                <td>Command-line search of Freedom of Information requests on WhatDoTheyKnow.</td>
+              </tr>
+              <tr>
+                <td><a href="https://github.com/KindTechUK/awesome-charity-ai-use-cases">awesome-charity-ai-use-cases</a></td>
+                <td>A list of real examples of charities using AI, with what they learned.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-    </footer>
+        <h3 class="gap">Opening up soon</h3>
+        <ul>
+          <li>A research tool that keeps a source for every fact it records.</li>
+          <li>A transcription app that runs entirely on your own computer.</li>
+          <li>Skills and connectors that bring UK charity know-how and open data into AI assistants.</li>
+        </ul>
+      </div>
+    </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+    <section id="contribute">
+      <div class="wrap">
+        <h2>Contribute</h2>
+        <p class="lead">You do not need to write code to help. There are four ways in, and each is small enough to finish.</p>
+        <ul class="grid">
+          <li class="card"><h3>Add a use case</h3><p>Work at a charity? Share an example of AI or data in use, and what you learned, in the <a href="https://github.com/KindTechUK/awesome-charity-ai-use-cases">use cases list</a>.</p></li>
+          <li class="card"><h3>Add a data source</h3><p>Bring another public dataset into the package so every lens and skill can use it.</p></li>
+          <li class="card"><h3>Add a lens</h3><p>Turn a question charities keep asking into a lens, with its sources, working and checks.</p></li>
+          <li class="card"><h3>Add a skill</h3><p>Write down how a good analyst or fundraiser does a task, so an AI assistant can help with it properly.</p></li>
+        </ul>
+        <p>Start with the <a href="https://github.com/KindTechUK/.github/blob/main/CONTRIBUTING.md">contributing guide</a>. Using an AI assistant to contribute is welcome: read the <a href="https://github.com/KindTechUK/.github/blob/main/AI_POLICY.md">AI policy</a> first. Never put data about real people in an issue, an example or a test.</p>
+      </div>
+    </section>
+  </main>
 
-        // Add fade-in animation to elements when they come into view
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all feature cards, project cards, and sections
-        document.querySelectorAll('.feature-card, .project-card, .section').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+  <footer>
+    <div class="wrap">
+      <nav aria-label="Footer">
+        <a href="https://app.kindte.ch/privacy">Privacy policy</a>
+        <a href="https://app.kindte.ch/terms">Terms of use</a>
+        <a href="https://app.kindte.ch/support">Help and support</a>
+        <a href="https://github.com/KindTechUK">GitHub</a>
+      </nav>
+      <p class="small">Support: [support address to be confirmed]. Found a security or privacy problem? Please <a href="https://github.com/KindTechUK/.github/blob/main/SECURITY.md">report it privately</a>.</p>
+      <p class="small">Kindtech's code is open source under the Apache-2.0 licence. This site uses no cookies, no tracking and nothing loaded from other companies.</p>
+    </div>
+  </footer>
 </body>
-</html> 
+</html>
