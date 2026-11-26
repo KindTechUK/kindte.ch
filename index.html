@@ -47,6 +47,7 @@
       --brand: #ff6b35;
       --accent: #1c5cab;
       --accent-dark: #104281;
+      --focus: #b35900;
     }
     * { box-sizing: border-box; }
     html { font-size: 112.5%; scroll-behavior: smooth; }
@@ -66,7 +67,7 @@
     li { margin-bottom: 0.4rem; }
     a { color: var(--accent); text-underline-offset: 0.15em; }
     a:hover { color: var(--accent-dark); }
-    :focus-visible { outline: 3px solid #eda100; outline-offset: 2px; }
+    :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
     .skip { position: absolute; left: -999rem; }
     .skip:focus { left: 1rem; top: 0.5rem; background: var(--surface); padding: 0.4rem; z-index: 10; }
     header { border-bottom: 4px solid var(--brand); }
